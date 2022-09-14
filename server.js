@@ -15,6 +15,11 @@ mongoose.connect(
   }
 );
 
+app.use (express.static(__dirname + '/dist/restaurant-recordsapplication'));
+app.get("/",(req,res)=>{
+  res.sendFile(path.join(__dirname+ '/dist/restaurant-recordsapplication/index.html'))
+})
+
 // import route
 const restaurantRoute = require("./routes/restaurant");
 const userRoute = require("./routes/user")
